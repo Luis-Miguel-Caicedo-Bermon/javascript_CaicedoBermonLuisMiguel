@@ -49,7 +49,6 @@ var info = {
     ]
 }
 function menu() {
-    console.log("--------------------");
     console.log("///////MENÚ/////////");
     console.log("1. Crear:");
     console.log("2. Ver");
@@ -72,11 +71,22 @@ function informacion_2() {
     console.log("4. volver al menú principal");
     console.log("");
 }
+function actualizar() {
+    console.log("Que dato deseas actualizar\n");
+    console.log("1: nombre");
+    console.log("2: edad");
+    console.log("3: direccion");
+    console.log("4: contacto\n");
+    console.log("5: volver al menú principal");
+}
 let booleano=true;
 while (booleano==true) {
+    console.clear();
     menu();
     let opc_menu = prompt("escoje una opción")
+    console.clear();
     if (opc_menu==1) {
+        console.clear();
         let bool=true;
         while (bool==true) {
             console.log("A que sección deseas añadir nueva información");
@@ -105,6 +115,7 @@ while (booleano==true) {
         
     }
     else if (opc_menu==2){
+        console.clear();
         let bool=true;
         while (bool==true) {
             console.log("De que sección quieres ver información");
@@ -125,20 +136,23 @@ while (booleano==true) {
             }
             else if (opc_informacion==2){
                 console.log("historial_educativo");
+                let contador=1;
                 for (const i of info["historial_educativo"]){
-                    console.log("------------------------------");
+                    console.log("--------------#",contador,"----------------");
                     console.log("nivel: ",i["nivel"]);
                     console.log("institucion: ",i["institucion"]);
                     console.log("titulo: ",i["titulo"]);
                     console.log("año_inicio: ",i["año_inicio"]);
                     console.log("año_fin: ",i["año_fin"]);
                     console.log("------------------------------");
+                    contador+=1;
                 }
             }
             else if (opc_informacion==3){
                 console.log("experiencia_laboral");
+                let contador=1;
                 for (const i of info["experiencia_laboral"]){
-                    console.log("------------------------------");
+                    console.log("--------------#",contador,"----------------");
                     console.log("puesto: ",i["puesto"]);
                     console.log("empresa: ",i["empresa"]);
                     console.log("periodo",i["periodo"]);
@@ -146,6 +160,7 @@ while (booleano==true) {
                     console.log("------------------ ",i["responsabilidades"][0]);
                     console.log("------------------ ",i["responsabilidades"][1]);
                     console.log("------------------------------");
+                    contador+=1;
                 }
             }
             else if (opc_informacion==4){
@@ -154,12 +169,97 @@ while (booleano==true) {
         }
     }
     else if (opc_menu==3){
-
+        console.clear();
+        let bool=true;
+        while (bool==true) {
+            actualizar();
+            let opc_informacion = prompt("Escoje una opción");
+            if (opc_informacion==1) {
+                let nombre = prompt("ingrese el nuevo nombre");
+                info["informacion_personal"]["nombre"]=nombre;
+            }
+            else if (opc_informacion==2) {
+                let edad = prompt("ingrese la nueva edad");
+                info["informacion_personal"]["edad"]=edad;
+            }
+            else if (opc_informacion==3) {
+                console.log("nueva dirección");
+                let calle = prompt("calle");
+                let numero = prompt("numero");
+                let ciudad = prompt("ciudad");
+                info["informacion_personal"]["direccion"]["calle"]=calle;
+                info["informacion_personal"]["direccion"]["numero"]=numero;
+                info["informacion_personal"]["direccion"]["ciudad"]=ciudad;
+            }
+            else if (opc_informacion==4) {
+                console.log("nuevos contactos");
+                let correo = prompt("correo");
+                let telefono = prompt("telefono");
+                info["informacion_personal"]["contacto"]["correo"]=correo;
+                info["informacion_personal"]["contacto"]["telefono"]=telefono;
+            }
+            else if (opc_informacion==5) {
+                bool=false
+            }
+        }
     }
     else if (opc_menu==4){
-
+        console.clear();
+        let bool=true;
+        while (bool==true){
+            informacion();
+            let opc_informacion = prompt("Escoje una opción");
+            if (opc_informacion==1) {
+                console.log("historial_educativo");
+                let contador=1;
+                for (const i of info["historial_educativo"]){
+                    console.log("--------------#",contador,"----------------");
+                    console.log("nivel: ",i["nivel"]);
+                    console.log("institucion: ",i["institucion"]);
+                    console.log("titulo: ",i["titulo"]);
+                    console.log("año_inicio: ",i["año_inicio"]);
+                    console.log("año_fin: ",i["año_fin"]);
+                    console.log("------------------------------");
+                    contador+=1
+                }
+                let buclecito=true;
+                while (buclecito==true) {
+                    var Eliminar = prompt("Seleciona el que vas a eliminar por su id")
+                    if (Eliminar<contador && Eliminar>0) {
+                        buclecito=false;
+                    }
+                }
+                info["historial_educativo"].splice(Eliminar-1,1);
+            }
+            else if (opc_informacion==2) {
+                console.log("experiencia_laboral");
+                let contador=1;
+                for (const i of info["experiencia_laboral"]){
+                    console.log("--------------#",contador,"----------------");
+                    console.log("puesto: ",i["puesto"]);
+                    console.log("empresa: ",i["empresa"]);
+                    console.log("periodo",i["periodo"]);
+                    console.log("responsabilidades:",);
+                    console.log("------------------ ",i["responsabilidades"][0]);
+                    console.log("------------------ ",i["responsabilidades"][1]);
+                    console.log("------------------------------");
+                    contador+=1;
+                }
+                let buclecito=true;
+                while (buclecito==true) {
+                    var Eliminar1 = prompt("Seleciona el que vas a eliminar por su id")
+                    if (Eliminar1<contador && Eliminar1>0) {
+                        buclecito=false;
+                    }
+                }
+                info["experiencia_laboral"].splice(Eliminar1-1,1)
+            }
+            else if (opc_informacion==3) {
+                bool=false;
+            }
+        }
     }
     else if (opc_menu==5){
-        booleano=false
+        booleano=false;
     }
 }
