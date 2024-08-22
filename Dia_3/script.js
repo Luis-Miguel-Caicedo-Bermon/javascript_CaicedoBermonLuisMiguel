@@ -9,6 +9,7 @@ while (bool==true) {
     console.log(pru);
     
     if (pru>1){
+        numerox=0
         for (const i of numeron){
             numerox+=(Math.floor(i));
             
