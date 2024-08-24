@@ -70,6 +70,14 @@ function gestion_proveedores(){
     console.log("4. Eliminar Proveedor");
     console.log("5. Volver al menú principal");
 }
+function gestion_pedidos(){
+    console.log("---------------------------");
+    console.log("1. Añadir nuevo pedido");
+    console.log("2. Ver todos los pedidos");
+    console.log("3. Actualizar datos de un pedido");
+    console.log("4. Eliminar un pedido");
+    console.log("5. Volver al menú principal");
+}
 function searchProducts(query){
     if (query==1) {
         console.log("FILTRADO POR NOMBRE");
@@ -349,6 +357,77 @@ function deleteSupplier(id){
         console.log("El id que ingresaste no existe");
     }
 }
+function addOrder(order){
+    let contador_order = 0;
+    let contador_produc = 0;
+    let contador_cantidad = 0;
+    for (const i of info["orders"]){
+        if (i["orderId"]==order["orderId"]) {
+            contador_order+=1;
+        }
+    }
+    for (const i of info["products"]){
+        if (i["id"]==order["productId"]) {
+            contador_produc+=1;
+            if (order["quantity"]<=i["quantityInStock"] && order["quantity"]>0) {
+                contador_cantidad+=1;
+            }
+        }
+    }
+    if (contador_order>0) {
+        console.log("ya existe una orden con el id que ingresaste");
+    }
+    if (contador_produc==0) {
+        console.log("no existe ningun producto con el id que ingresaste");
+    }
+    if (contador_cantidad==0) {
+        console.log("la cantidad que ingresaste supera a la cantidad en stock o es una cantidad invalida");
+    }
+    if (contador_order==0 && contador_produc>0 && contador_cantidad>0){
+        for (const i of info["products"]){
+            if (i["id"]==order["productId"]) {
+                i["quantityInStock"]-=order["quantity"]
+            }
+        }
+        info["orders"].push(order);
+    }
+}
+function viewOrders(){
+    for (const i of info["orders"]){
+        console.log("---------------------------");
+        console.log("orderId: ",i["orderId"]);
+        console.log("productId: ",i["productId"]);
+        console.log("quantity: ",i["quantity"]);
+        console.log("orderDate: ",i["orderDate"]);
+        console.log("status: ",i["status"]);
+        console.log("---------------------------");
+    }
+}
+function updateOrder(orderId, newDetails){
+    let contador = 0;
+    for (const i of info["orders"]){
+        if (orderId==i["orderId"]) {
+            i["orderDate"]=newDetails[0];
+            i["status"]=newDetails[1];
+            contador+=1;
+        }
+    }
+    if (contador==0) {
+        console.log("el id de orden que ingresaste no existe");
+    }
+}
+function deleteOrder(orderId){
+    let contador = 0;
+    for (let i=info["orders"].length-1; i >= 0; i--){
+        if (orderId==info["orders"][i]["orderId"]) {
+            info["orders"].splice(i,1);
+            contador+=1
+        }
+    }
+    if (contador==0) {
+        console.log("El id que ingresaste no existe");
+    }
+}
 
 
 
@@ -436,7 +515,42 @@ while (bucle_principal==true) {
         }
     }
     else if (opc==3) {
-        
+        console.clear();
+        let bucle_3=true;
+        while (bucle_3==true){
+            gestion_pedidos();
+            let opcion = prompt("ingresa una opción");
+            if (opcion==1) {
+                console.log("Añadir nuevo pedido");
+                let orderId = prompt("id de la orden");
+                let productId = prompt("id del producto");
+                let quantity = prompt("cantidad del producto");
+                let orderDate = prompt("fecha (año-mes-dia)");
+                let status = prompt("estado de la orden");
+                var orden_agregar = {"orderId":orderId,"productId":productId,"quantity":quantity,"orderDate":orderDate,"status":status};
+                addOrder(orden_agregar);
+                console.log("-------------------------------------------");
+            }
+            else if (opcion==2){
+                console.clear();
+                viewOrders();
+            }
+            else if (opcion==3){
+                let orderId = prompt("id de la orden");
+                let orderDate = prompt("nueva fecha (año-mes-dia)");
+                let status = prompt("Nuevo estado de la orden");
+                var cambios_orden=[orderDate,status];
+                updateOrder(orderId,cambios_orden);
+                console.log("-------------------------------------------");
+            }
+            else if (opcion==4){
+                let orderId = prompt("id de la orden que deseas eliminar");
+                deleteOrder(orderId)
+            }
+            else if (opcion==5){
+                bucle_3=false;
+            }
+        }
     }
     else if (opc==4) {
         
@@ -457,7 +571,7 @@ while (bucle_principal==true) {
                     menu_filtro();
                     let opc_filtro = prompt("escoje tu opción");
                     searchProducts(opc_filtro);
-                    bool=searchProducts()
+                    bool=searchProducts();
                 }
             }
             else if (opc_6==2) {
