@@ -62,6 +62,14 @@ function gestion_productos(){
     console.log("4. Eliminar Productos");
     console.log("5. Volver al menú principal");
 }
+function gestion_proveedores(){
+    console.log("---------------------------");
+    console.log("1. Añadir nuevo proveedor");
+    console.log("2. Ver todos los proveedores");
+    console.log("3. Actualizar datos de un proveedor");
+    console.log("4. Eliminar Proveedor");
+    console.log("5. Volver al menú principal");
+}
 function searchProducts(query){
     if (query==1) {
         console.log("FILTRADO POR NOMBRE");
@@ -289,6 +297,62 @@ function deleteProduct(id){
         
     }
 }
+function addSupplier(supplier){
+    let contador = 0;
+    for (const i of info["suppliers"]){
+        if (i["id"]==supplier["id"]) {
+            contador=1;
+        }
+    }
+    if (contador==0) {
+        info["suppliers"].push(supplier)
+    }
+    else{
+        console.log("ya existe un proveedor con este id por lo tanto no se puede agregar");
+    }
+}
+function viewSuppliers(){
+    for (const i of info["suppliers"]){
+        console.log("---------------------------");
+        console.log("id: ",i["id"]);
+        console.log("name: ",i["name"]);
+        console.log("contactInfo: ");
+        console.log("------------phone: ",i["contactInfo"]["phone"]);
+        console.log("------------email: ",i["contactInfo"]["email"]);
+        console.log("------------address: ",i["contactInfo"]["address"]);
+        console.log("---------------------------");
+    }
+}
+function updateSupplier(id, newDetails){
+    let contador = 0;
+    for (const i of info["suppliers"]){
+        if (id==i["id"]) {
+            i["contactInfo"]["phone"]=newDetails[0];
+            i["contactInfo"]["email"]=newDetails[1];
+            i["contactInfo"]["address"]=newDetails[2];
+            contador+=1;
+        }
+    }
+    if (contador==0) {
+        console.log("NO existe un proveedor con este id por lo tanto no se pueden hacer cambios");
+    }
+}
+function deleteSupplier(id){
+    let contador = 0;
+    for (let i=info["suppliers"].length-1; i >= 0; i--){
+        if (id==info["suppliers"][i]["id"]) {
+            info["suppliers"].splice(i,1);
+            contador+=1
+        }
+    }
+    if (contador==0) {
+        console.log("El id que ingresaste no existe");
+    }
+}
+
+
+
+
 
 let bucle_principal=true;
 while (bucle_principal==true) {
@@ -333,7 +397,43 @@ while (bucle_principal==true) {
         }
     }
     else if (opc==2) {
-        
+        console.clear();
+        let bucle_2=true;
+        while (bucle_2==true) {
+            gestion_proveedores();
+            let opcion = prompt("ingresa una opción");
+            if (opcion==1) {
+                console.log("AGREGAR NUEVO PROVEEDOR");
+                let id = prompt("id del nuevo proveedor")
+                let name = prompt("nombre");
+                let phone = prompt("numero de telefono");
+                let email = prompt("Email");
+                let address = prompt("address");
+                var proveedor_agregar={"id":id,"name":name,"contactInfo":{"phone":phone,"email":email,"address":address}}
+                addSupplier(proveedor_agregar);
+                console.log("-------------------------------------------");
+            }
+            else if (opcion==2) {
+                console.clear();
+                viewSuppliers();
+            }
+            else if (opcion==3) {
+                console.log("ACTUALIZAR DATOS DEL PROVEEDOR");
+                let id = prompt("id del proveedor al que le vas a realizar los cambios");
+                let phone = prompt("Nuevo numero de telefono");
+                let email = prompt("Nuevo Email");
+                let address = prompt("Nuevo address");
+                var cambios_proveedor=[phone,email,address];
+                updateSupplier(id,cambios_proveedor)
+            }
+            else if (opcion==4) {
+                let id = prompt("ingresa el id del proveedor que deseas eliminar");
+                deleteSupplier(id);
+            }
+            else if (opcion==5) {
+                bucle_2=false;
+            }
+        }
     }
     else if (opc==3) {
         
