@@ -27,6 +27,13 @@ var info = {
             "quantity": 5,
             "orderDate": "2024-08-23",
             "status": "Delivered"
+        },
+        {
+            "orderId": 10,
+            "productId": 1,
+            "quantity": 3,
+            "orderDate": "2024-01-23",
+            "status": "Delivered"
         }
     ]
 }
@@ -77,6 +84,12 @@ function gestion_pedidos(){
     console.log("3. Actualizar datos de un pedido");
     console.log("4. Eliminar un pedido");
     console.log("5. Volver al menú principal");
+}
+function informes(){
+    console.log("---------------------------");
+    console.log("1. informe de ventas");
+    console.log("2. informe de productos");
+    console.log("3. Volver al menú principal");
 }
 function searchProducts(query){
     if (query==1) {
@@ -428,6 +441,46 @@ function deleteOrder(orderId){
         console.log("El id que ingresaste no existe");
     }
 }
+function generateSalesReport(startDate, endDate){
+    let contador_pedidos=0;
+    let ingresos_generados=0;
+    let id_productos=[];
+    let tipos_productos=[];
+    let precio_productos=[];
+    for (const i of info["orders"]){
+        if (new Date(i["orderDate"])>startDate && new Date(i["orderDate"])<endDate) {
+            contador_pedidos+=1;
+            for (const x of info["products"]){
+                if (i["productId"]==x["id"]) {
+                    ingresos_generados+=i["quantity"]*x["price"];
+                    if (!tipos_productos.includes(x["name"])) {
+                        tipos_productos.push(x["name"]);
+                        id_productos.push(x["id"]);
+                        precio_productos.push(x["price"])
+                    }
+                }
+            }
+        }
+    }
+    
+    for (let h=0; h<tipos_productos.length; h++){
+        let precio_total = 0;
+        let total_ventas = 0;
+        for (const i of info["orders"]){
+            if (new Date(i["orderDate"])>startDate && new Date(i["orderDate"])<endDate && id_productos[h]==i["productId"]){
+                precio_total+=i["quantity"]*precio_productos[h];
+                total_ventas+=i["quantity"]
+            }
+        }
+        console.log("nombre del producto: ",tipos_productos[h]);
+        console.log("precio por unidad: ",precio_productos[h]);
+        console.log("unidades vendidas: ",total_ventas);
+        console.log("precio total: ",precio_total);
+    }
+    console.log("total de pedidos realizados en ese periodo de tiempo: ",contador_pedidos);
+    console.log("Ingresos totales en ese periodo de tiempo: ",ingresos_generados);
+    
+}
 
 
 
@@ -522,9 +575,9 @@ while (bucle_principal==true) {
             let opcion = prompt("ingresa una opción");
             if (opcion==1) {
                 console.log("Añadir nuevo pedido");
-                let orderId = prompt("id de la orden");
-                let productId = prompt("id del producto");
-                let quantity = prompt("cantidad del producto");
+                let orderId = Number(prompt("id de la orden"));
+                let productId = Number(prompt("id del producto"));
+                let quantity = Number(prompt("cantidad del producto"));
                 let orderDate = prompt("fecha (año-mes-dia)");
                 let status = prompt("estado de la orden");
                 var orden_agregar = {"orderId":orderId,"productId":productId,"quantity":quantity,"orderDate":orderDate,"status":status};
@@ -556,7 +609,25 @@ while (bucle_principal==true) {
         
     }
     else if (opc==5) {
-        
+        let bucle_5=true;
+        while (bucle_5) {
+            informes();
+            let opcion = prompt("ingresa una opción");
+            if (opcion==1) {
+                console.log("INFORME DE VENTAS");
+                let fecha_i=prompt("ingresa la fecha de inicio en formato (año-mes-dia)");
+                let fecha_f=prompt("ingresa la fecha de fin en formato (año-mes-dia)");
+                let inicio=new Date(fecha_i);
+                let fin=new Date(fecha_f);
+                generateSalesReport(inicio,fin);
+            }
+            else if (opcion==2) {
+                
+            }
+            else if (opcion==3) {
+                bucle_5=false;
+            }
+        }
     }
     else if (opc==6) {
         let bucle_6 = true;
