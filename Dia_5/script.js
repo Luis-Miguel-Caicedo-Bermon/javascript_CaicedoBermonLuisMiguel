@@ -59,8 +59,7 @@ function menu_principal(){
     console.log("4. Gestión de existencias");
     console.log("5. Informes");
     console.log("6. Buscar y Filtrar");
-    console.log("7. Integridad y validación de datos");
-    console.log("8. Salir del programa");
+    console.log("7. Salir del programa");
 }
 function gestion_productos(){
     console.log("1. Añadir nuevo producto");
@@ -481,6 +480,50 @@ function generateSalesReport(startDate, endDate){
     console.log("Ingresos totales en ese periodo de tiempo: ",ingresos_generados);
     
 }
+function generateInventoryReport(){
+    for (const i of info["products"]){
+        console.log("////////////////////////////////////////////////////////////");
+        console.log("id: ",i["id"]);
+        console.log("name: ",i["name"]);
+        console.log("category: ",i["category"]);
+        console.log("price: ",i["price"]);
+        console.log("quantityInStock: ",i["quantityInStock"]);
+        console.log("valor de stock: ",i["price"]*i["quantityInStock"]);
+        console.log(":::::::::::::::INFORMACIÓN DEL PROVEEDOR::::::::::::::::");
+        for (const x of info["suppliers"]){
+            if (i["supplierId"]==x["id"]) {
+                console.log("id: ",x["id"]);
+                console.log("name: ",x["name"]);
+                console.log("contactInfo: ");
+                console.log("------------phone: ",x["contactInfo"]["phone"]);
+                console.log("------------email: ",x["contactInfo"]["email"]);
+                console.log("------------address: ",x["contactInfo"]["address"]);
+            }
+        }
+        console.log("////////////////////////////////////////////////////////////");
+    }
+}
+function checkStockLevels() {
+    for (const i of info["products"]){
+        if (i["quantityInStock"]<10) {
+            console.log("----------------------------");
+            console.log("id: ",i["id"]);
+            console.log("name: ",i["name"]);
+            console.log("category: ",i["category"]);
+            console.log("price: ",i["price"]);
+            console.log("quantityInStock: ",i["quantityInStock"]);
+            console.log("supplierId: ",i["supplierId"]);
+            console.log("----------------------------");
+        }
+    }
+}
+function restockProduct(id, quantity) {
+    for (const i of info["products"]){
+        if (id==i["id"]) {
+            i["quantityInStock"]+=quantity
+        }
+    }
+}
 
 
 
@@ -606,9 +649,31 @@ while (bucle_principal==true) {
         }
     }
     else if (opc==4) {
-        
+        console.clear();
+        let bucle_4=true;
+        while (bucle_4==true) {
+            console.log(":::::::::GESTION DE EXISTENCIAS::::::::::");
+            console.log("1. ver productos con poco stock");
+            console.log("2. Aumentar existencias de un producto");
+            console.log("3. Volver al menú principal");
+            let opcion = prompt("ingresa una opción");
+            if (opcion==1) {
+                console.log("PRODUCTOS CON CANTIDAD DE STOCK BAJA");
+                checkStockLevels();
+            }
+            else if (opcion==2) {
+                console.log("AUMENTAR NIVEL DE EXISTENCIAS DE UN PRODUCTO");
+                let id = prompt("id del producto");
+                let quantity = Number(prompt("cantidad que deseas añadir"));
+                restockProduct(id, quantity)
+            }
+            else if (opcion==3) {
+                bucle_4=false;
+            }
+        }
     }
     else if (opc==5) {
+        console.clear();
         let bucle_5=true;
         while (bucle_5) {
             informes();
@@ -622,7 +687,9 @@ while (bucle_principal==true) {
                 generateSalesReport(inicio,fin);
             }
             else if (opcion==2) {
-                
+                console.clear();
+                console.log(":::::::::INFORME DE TODOS LOS PRODUCTOS::::::::::");
+                generateInventoryReport();
             }
             else if (opcion==3) {
                 bucle_5=false;
@@ -660,9 +727,6 @@ while (bucle_principal==true) {
         }
     }
     else if (opc==7) {
-        
-    }
-    else if (opc==8) {
         console.log("Gracias por usar este programa :)");
         bucle_principal=false;
     }
