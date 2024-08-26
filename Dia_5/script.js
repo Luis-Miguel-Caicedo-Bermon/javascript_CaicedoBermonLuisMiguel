@@ -1,4 +1,4 @@
-var info = {
+var info = {//diccionario que contiene toda la información
     "products": [
         {
             "id": 1,
@@ -37,21 +37,21 @@ var info = {
         }
     ]
 }
-function menu_filtro() {
+function menu_filtro() {//función que imprime un menú de opciones
     console.log("Filtrar productos");
     console.log("1. filtrar por nombre");
     console.log("2. filtrar por categoria");
     console.log("3. filtrar por proveedor");
     console.log("4. salir");
 }
-function menu_filtro_pedidos() {
+function menu_filtro_pedidos() {//función que imprime un menú de opciones
     console.log("Filtrar pedidos");
     console.log("1. filtrar por estado");
     console.log("2. filtrar por rango de fecha");
     console.log("3. filtrar por producto");
     console.log("4. salir");
 }
-function menu_principal(){
+function menu_principal(){//función que imprime un menú de opciones
     console.log("--------MENÜ PRINCIPAL--------");
     console.log("1. Gestión de productos");
     console.log("2. Gestión de proveedores");
@@ -61,14 +61,14 @@ function menu_principal(){
     console.log("6. Buscar y Filtrar");
     console.log("7. Salir del programa");
 }
-function gestion_productos(){
+function gestion_productos(){//función que imprime un menú de opciones
     console.log("1. Añadir nuevo producto");
     console.log("2. Ver todos los productos");
     console.log("3. Actualizar datos de un producto");
     console.log("4. Eliminar Productos");
     console.log("5. Volver al menú principal");
 }
-function gestion_proveedores(){
+function gestion_proveedores(){//función que imprime un menú de opciones
     console.log("---------------------------");
     console.log("1. Añadir nuevo proveedor");
     console.log("2. Ver todos los proveedores");
@@ -76,7 +76,7 @@ function gestion_proveedores(){
     console.log("4. Eliminar Proveedor");
     console.log("5. Volver al menú principal");
 }
-function gestion_pedidos(){
+function gestion_pedidos(){//función que imprime un menú de opciones
     console.log("---------------------------");
     console.log("1. Añadir nuevo pedido");
     console.log("2. Ver todos los pedidos");
@@ -84,27 +84,27 @@ function gestion_pedidos(){
     console.log("4. Eliminar un pedido");
     console.log("5. Volver al menú principal");
 }
-function informes(){
+function informes(){//función que imprime un menú de opciones
     console.log("---------------------------");
     console.log("1. informe de ventas");
     console.log("2. informe de productos");
     console.log("3. Volver al menú principal");
 }
-function searchProducts(query){
+function searchProducts(query){//funcion para filtrar productos
     if (query==1) {
         console.log("FILTRADO POR NOMBRE");
         let buclecito1=true;
         while (buclecito1==true) {
             let contador=0;
-            let nombre=prompt("ingresa el nombre por el que deseas filtrar");
+            let nombre=prompt("ingresa el nombre por el que deseas filtrar");//se pide un nombre de un producto
             for (const i of info["products"]){
-                if (nombre==i["name"]){
+                if (nombre==i["name"]){//se verifica si el nombre esta entre los productos
                     console.log("---------------------------");
                     console.log("id: ",i["id"]);
                     console.log("name: ",i["name"]);
                     console.log("category: ",i["category"]);
                     console.log("price: ",i["price"]);
-                    console.log("quantityInStock: ",i["quantityInStock"]);
+                    console.log("quantityInStock: ",i["quantityInStock"]);//y se imprimen los detalles del producto
                     console.log("supplierId: ",i["supplierId"]);
                     console.log("---------------------------");
                     contador+=1;
@@ -123,15 +123,15 @@ function searchProducts(query){
         let buclecito1=true;
         while (buclecito1==true) {
             let contador=0;
-            let nombre=prompt("ingresa la categoria por el que deseas filtrar");
+            let nombre=prompt("ingresa la categoria por el que deseas filtrar");//se pide un nombre de la categoria
             for (const i of info["products"]){
-                if (nombre==i["category"]){
+                if (nombre==i["category"]){//se verifica si la categoría esta entre los productos
                     console.log("---------------------------");
                     console.log("id: ",i["id"]);
                     console.log("name: ",i["name"]);
                     console.log("category: ",i["category"]);
                     console.log("price: ",i["price"]);
-                    console.log("quantityInStock: ",i["quantityInStock"]);
+                    console.log("quantityInStock: ",i["quantityInStock"]);//y se imprimen los detalles del producto
                     console.log("supplierId: ",i["supplierId"]);
                     console.log("---------------------------");
                     contador+=1;
@@ -150,15 +150,15 @@ function searchProducts(query){
         let buclecito1=true;
         while (buclecito1==true) {
             let contador=0;
-            let nombre=prompt("ingresa el id del proveedor por el que deseas filtrar");
+            let nombre=prompt("ingresa el id del proveedor por el que deseas filtrar");//se pide un nombre del proveedor
             for (const i of info["products"]){
-                if (nombre==i["supplierId"]){
+                if (nombre==i["supplierId"]){//se verifica si el proveedor esta entre los productos
                     console.log("---------------------------");
                     console.log("id: ",i["id"]);
                     console.log("name: ",i["name"]);
                     console.log("category: ",i["category"]);
                     console.log("price: ",i["price"]);
-                    console.log("quantityInStock: ",i["quantityInStock"]);
+                    console.log("quantityInStock: ",i["quantityInStock"]);//y se imprimen los detalles del producto
                     console.log("supplierId: ",i["supplierId"]);
                     console.log("---------------------------");
                     contador+=1;
@@ -173,24 +173,24 @@ function searchProducts(query){
         }
     }
     else if (query==4) {
-        return false;
+        return false;//retorna falso para que finalize el bucle
     }
 }
-function filterOrders(criteria){
+function filterOrders(criteria){//función para filtrar ordenes
     if (criteria==1) {
         console.log("FILTRADO POR ESTADO");
         let buclecito1=true;
         while (buclecito1==true) {
             let contador=0;
-            let nombre=prompt("ingresa el estado por el que deseas filtrar");
+            let nombre=prompt("ingresa el estado por el que deseas filtrar");//se pide que quiere filtrar
             for (const i of info["orders"]){
-                if (nombre==i["status"]){
+                if (nombre==i["status"]){//se verifica si el  esta entre las ordenes
                     console.log("---------------------------");
                     console.log("orderId: ",i["orderId"]);
                     console.log("productId: ",i["productId"]);
                     console.log("quantity: ",i["quantity"]);
                     console.log("orderDate: ",i["orderDate"]);
-                    console.log("quantityInStock: ",i["quantityInStock"]);
+                    console.log("quantityInStock: ",i["quantityInStock"]);//se imprimen las ordenes
                     console.log("status: ",i["status"]);
                     console.log("---------------------------");
                     contador+=1;
@@ -209,17 +209,17 @@ function filterOrders(criteria){
         let buclecito1=true;
         while (buclecito1==true) {
             let contador=0;
-            let fecha_i=prompt("ingresa la fecha de inicio en formato (año-mes-dia)");
+            let fecha_i=prompt("ingresa la fecha de inicio en formato (año-mes-dia)");//se pide que quiere filtrar
             let fecha_f=prompt("ingresa la fecha de fin en formato (año-mes-dia)");
             let inicio=new Date(fecha_i);
             let fin=new Date(fecha_f);
             for (const i of info["orders"]){
-                if (new Date(i["orderDate"])>inicio && new Date(i["orderDate"])<fin){
+                if (new Date(i["orderDate"])>inicio && new Date(i["orderDate"])<fin){//se verifica si el  esta entre las ordenes
                     console.log("---------------------------");
                     console.log("orderId: ",i["orderId"]);
                     console.log("productId: ",i["productId"]);
                     console.log("quantity: ",i["quantity"]);
-                    console.log("orderDate: ",i["orderDate"]);
+                    console.log("orderDate: ",i["orderDate"]);//se imprimen las ordenes
                     console.log("status: ",i["status"]);
                     console.log("---------------------------");
                     contador+=1;
@@ -238,22 +238,21 @@ function filterOrders(criteria){
         let buclecito1=true;
         while (buclecito1==true) {
             let contador=0;
-            let nombre=prompt("ingresa el id del producto por el que deseas filtrar");
+            let nombre=prompt("ingresa el id del producto por el que deseas filtrar");//se pide que quiere filtrar
             for (const i of info["orders"]){
-                if (nombre==i["productId"]){
+                if (nombre==i["productId"]){//se verifica si el  esta entre las ordenes
                     console.log("---------------------------");
                     console.log("orderId: ",i["orderId"]);
                     console.log("productId: ",i["productId"]);
                     console.log("quantity: ",i["quantity"]);
-                    console.log("orderDate: ",i["orderDate"]);
-                    console.log("quantityInStock: ",i["quantityInStock"]);
+                    console.log("orderDate: ",i["orderDate"]);//se imprimen las ordenes
                     console.log("status: ",i["status"]);
                     console.log("---------------------------");
                     contador+=1;
                 }
             }
             if (contador==0) {
-                console.log("no hay ordenes con este estado");
+                console.log("no hay ordenes con este producto");
             }
             else{
                 buclecito1=false;
@@ -261,24 +260,24 @@ function filterOrders(criteria){
         }
     }
     else if (criteria==4){
-        return false;
+        return false;//retorna falso para que finalize el bucle
     }
 }
-function addProduct(product){
+function addProduct(product){//función que agrega un nuevo producto
     let contador=0;
     for (const i of info["suppliers"]){
-        if (product["supplierId"]==i["id"]) {
+        if (product["supplierId"]==i["id"]) {//verifica si el proveedor existe
             contador+=1
         }
     }
-    if (contador>0){
+    if (contador>0){//si el proveedor existe se agrega el nuevo producto
         info["products"].push(product)
     }
     else{
         console.log("no se encontró el proveedor que especificaste");
     }
 }
-function viewProducts(){
+function viewProducts(){//función que muestra todos los productos
     for (const i of info["products"]){
         console.log("----------------------------");
         console.log("id: ",i["id"]);
@@ -290,7 +289,7 @@ function viewProducts(){
         console.log("----------------------------");
     }
 }
-function updateProduct(id, newDetails){
+function updateProduct(id, newDetails){//función que actualiza los detalles de un producto
     let contador = 0;
     for (const i of info["products"]){
         if (id==i["id"]) {
@@ -304,7 +303,7 @@ function updateProduct(id, newDetails){
         
     }
 }
-function deleteProduct(id){
+function deleteProduct(id){//función que elinina un producto especificado por el usuario
     let contador = 0;
     for (let i=info["products"].length-1; i >= 0; i--){
         if (id==info["products"][i]["id"]) {
@@ -317,7 +316,7 @@ function deleteProduct(id){
         
     }
 }
-function addSupplier(supplier){
+function addSupplier(supplier){//función que añade un nuevo proveedor
     let contador = 0;
     for (const i of info["suppliers"]){
         if (i["id"]==supplier["id"]) {
@@ -331,7 +330,7 @@ function addSupplier(supplier){
         console.log("ya existe un proveedor con este id por lo tanto no se puede agregar");
     }
 }
-function viewSuppliers(){
+function viewSuppliers(){//función que imprime todos los los proveedores
     for (const i of info["suppliers"]){
         console.log("---------------------------");
         console.log("id: ",i["id"]);
@@ -343,7 +342,7 @@ function viewSuppliers(){
         console.log("---------------------------");
     }
 }
-function updateSupplier(id, newDetails){
+function updateSupplier(id, newDetails){//función que actualiza detalles de un proveedor
     let contador = 0;
     for (const i of info["suppliers"]){
         if (id==i["id"]) {
@@ -357,7 +356,7 @@ function updateSupplier(id, newDetails){
         console.log("NO existe un proveedor con este id por lo tanto no se pueden hacer cambios");
     }
 }
-function deleteSupplier(id){
+function deleteSupplier(id){//funcion que elimina un proveedor elegido por el usuario
     let contador = 0;
     for (let i=info["suppliers"].length-1; i >= 0; i--){
         if (id==info["suppliers"][i]["id"]) {
@@ -369,19 +368,19 @@ function deleteSupplier(id){
         console.log("El id que ingresaste no existe");
     }
 }
-function addOrder(order){
+function addOrder(order){//función que añade una nueva orden
     let contador_order = 0;
     let contador_produc = 0;
     let contador_cantidad = 0;
     for (const i of info["orders"]){
-        if (i["orderId"]==order["orderId"]) {
+        if (i["orderId"]==order["orderId"]) {//comprueba si ya existe una orden con este id
             contador_order+=1;
         }
     }
     for (const i of info["products"]){
         if (i["id"]==order["productId"]) {
             contador_produc+=1;
-            if (order["quantity"]<=i["quantityInStock"] && order["quantity"]>0) {
+            if (order["quantity"]<=i["quantityInStock"] && order["quantity"]>0) {//comprueba si existe un producto con el id ingresado
                 contador_cantidad+=1;
             }
         }
@@ -398,13 +397,13 @@ function addOrder(order){
     if (contador_order==0 && contador_produc>0 && contador_cantidad>0){
         for (const i of info["products"]){
             if (i["id"]==order["productId"]) {
-                i["quantityInStock"]-=order["quantity"]
+                i["quantityInStock"]-=order["quantity"]//le resta la cantidad que se pidió al producto
             }
         }
-        info["orders"].push(order);
+        info["orders"].push(order);//añade la nueva orden
     }
 }
-function viewOrders(){
+function viewOrders(){//funcion que muestra todas la ordenes
     for (const i of info["orders"]){
         console.log("---------------------------");
         console.log("orderId: ",i["orderId"]);
@@ -415,7 +414,7 @@ function viewOrders(){
         console.log("---------------------------");
     }
 }
-function updateOrder(orderId, newDetails){
+function updateOrder(orderId, newDetails){//función que actualiza datos de una orden especificada
     let contador = 0;
     for (const i of info["orders"]){
         if (orderId==i["orderId"]) {
@@ -428,7 +427,7 @@ function updateOrder(orderId, newDetails){
         console.log("el id de orden que ingresaste no existe");
     }
 }
-function deleteOrder(orderId){
+function deleteOrder(orderId){//función que elimina una orden especificada
     let contador = 0;
     for (let i=info["orders"].length-1; i >= 0; i--){
         if (orderId==info["orders"][i]["orderId"]) {
@@ -440,7 +439,7 @@ function deleteOrder(orderId){
         console.log("El id que ingresaste no existe");
     }
 }
-function generateSalesReport(startDate, endDate){
+function generateSalesReport(startDate, endDate){//función que genera un reporte de un periodo de fecha especificado
     let contador_pedidos=0;
     let ingresos_generados=0;
     let id_productos=[];
@@ -480,7 +479,7 @@ function generateSalesReport(startDate, endDate){
     console.log("Ingresos totales en ese periodo de tiempo: ",ingresos_generados);
     
 }
-function generateInventoryReport(){
+function generateInventoryReport(){//función que genera un reporte total del inventario
     for (const i of info["products"]){
         console.log("////////////////////////////////////////////////////////////");
         console.log("id: ",i["id"]);
@@ -503,7 +502,7 @@ function generateInventoryReport(){
         console.log("////////////////////////////////////////////////////////////");
     }
 }
-function checkStockLevels() {
+function checkStockLevels() {//función que muetra los productos con balo stock
     for (const i of info["products"]){
         if (i["quantityInStock"]<10) {
             console.log("----------------------------");
@@ -517,7 +516,7 @@ function checkStockLevels() {
         }
     }
 }
-function restockProduct(id, quantity) {
+function restockProduct(id, quantity) {//función que añade cantidad de stock a un producto
     for (const i of info["products"]){
         if (id==i["id"]) {
             i["quantityInStock"]+=quantity
@@ -529,10 +528,11 @@ function restockProduct(id, quantity) {
 
 
 
+
 let bucle_principal=true;
-while (bucle_principal==true) {
+while (bucle_principal==true) {//inicia un bucle que el usuario puede finalizar cuando desee
     console.clear();
-    menu_principal();
+    menu_principal();//muetra el menú principal
     let opc = prompt("Escoje una opción");
     if (opc==1) {
         console.clear();
@@ -540,7 +540,7 @@ while (bucle_principal==true) {
         while (bucle_1==true) {
             gestion_productos();
             let opcion = prompt("ingresa una opción");
-            if (opcion==1) {
+            if (opcion==1) {//esta opción pide los datos del nuevo producto y los añade
                 let id=info["products"].length+1
                 let name=prompt("nombre del producto");
                 let category=prompt("categoria del producto");
@@ -551,10 +551,10 @@ while (bucle_principal==true) {
                 addProduct(lista_productos_agregar);
                 console.log("-------------------------------------------");
             }
-            else if (opcion==2) {
+            else if (opcion==2) {//esta opción muestra todos los productos
                 viewProducts();
             }
-            else if (opcion==3) {
+            else if (opcion==3) {//esta opción pide los nuevos datos de un producto y los actualiza
                 let id = prompt("ingresa el id de producto al que le deseas hacer una actualización");
                 let precio = prompt("nuevo precio");
                 let cantidad=prompt("nueva cantidad en stock");
@@ -562,7 +562,7 @@ while (bucle_principal==true) {
                 updateProduct(id,actualizacion);
                 console.log("-------------------------------------------");
             }
-            else if (opcion==4) {
+            else if (opcion==4) {//esta opción elimina un producto
                 let id = prompt("ingresa el id del producto que deseas eliminar");
                 deleteProduct(id);
             }
@@ -577,7 +577,7 @@ while (bucle_principal==true) {
         while (bucle_2==true) {
             gestion_proveedores();
             let opcion = prompt("ingresa una opción");
-            if (opcion==1) {
+            if (opcion==1) {//esta opción pide los datos del nuevo proveedor y lo añade
                 console.log("AGREGAR NUEVO PROVEEDOR");
                 let id = prompt("id del nuevo proveedor")
                 let name = prompt("nombre");
@@ -588,11 +588,11 @@ while (bucle_principal==true) {
                 addSupplier(proveedor_agregar);
                 console.log("-------------------------------------------");
             }
-            else if (opcion==2) {
+            else if (opcion==2) {//esta opción muestra todos los proveedores
                 console.clear();
                 viewSuppliers();
             }
-            else if (opcion==3) {
+            else if (opcion==3) {//esta opción actualiza los datos de un proveedor
                 console.log("ACTUALIZAR DATOS DEL PROVEEDOR");
                 let id = prompt("id del proveedor al que le vas a realizar los cambios");
                 let phone = prompt("Nuevo numero de telefono");
@@ -601,7 +601,7 @@ while (bucle_principal==true) {
                 var cambios_proveedor=[phone,email,address];
                 updateSupplier(id,cambios_proveedor)
             }
-            else if (opcion==4) {
+            else if (opcion==4) {//esta opción elinina un proveedor
                 let id = prompt("ingresa el id del proveedor que deseas eliminar");
                 deleteSupplier(id);
             }
@@ -616,7 +616,7 @@ while (bucle_principal==true) {
         while (bucle_3==true){
             gestion_pedidos();
             let opcion = prompt("ingresa una opción");
-            if (opcion==1) {
+            if (opcion==1) {//esta opción pide los datos del pedido y lo añade
                 console.log("Añadir nuevo pedido");
                 let orderId = Number(prompt("id de la orden"));
                 let productId = Number(prompt("id del producto"));
@@ -627,11 +627,11 @@ while (bucle_principal==true) {
                 addOrder(orden_agregar);
                 console.log("-------------------------------------------");
             }
-            else if (opcion==2){
+            else if (opcion==2){//esta opción muetra todos los pedidos
                 console.clear();
                 viewOrders();
             }
-            else if (opcion==3){
+            else if (opcion==3){//esta opción actualiza los datos de un pedido
                 let orderId = prompt("id de la orden");
                 let orderDate = prompt("nueva fecha (año-mes-dia)");
                 let status = prompt("Nuevo estado de la orden");
@@ -639,7 +639,7 @@ while (bucle_principal==true) {
                 updateOrder(orderId,cambios_orden);
                 console.log("-------------------------------------------");
             }
-            else if (opcion==4){
+            else if (opcion==4){//esta opción elimina un pedido
                 let orderId = prompt("id de la orden que deseas eliminar");
                 deleteOrder(orderId)
             }
@@ -657,11 +657,11 @@ while (bucle_principal==true) {
             console.log("2. Aumentar existencias de un producto");
             console.log("3. Volver al menú principal");
             let opcion = prompt("ingresa una opción");
-            if (opcion==1) {
+            if (opcion==1) {//esta opción muesta los productos con cantidad de stock baja
                 console.log("PRODUCTOS CON CANTIDAD DE STOCK BAJA");
                 checkStockLevels();
             }
-            else if (opcion==2) {
+            else if (opcion==2) {//esta opción aumenta el nivel de existencias
                 console.log("AUMENTAR NIVEL DE EXISTENCIAS DE UN PRODUCTO");
                 let id = prompt("id del producto");
                 let quantity = Number(prompt("cantidad que deseas añadir"));
@@ -678,7 +678,7 @@ while (bucle_principal==true) {
         while (bucle_5) {
             informes();
             let opcion = prompt("ingresa una opción");
-            if (opcion==1) {
+            if (opcion==1) {//esta opción da un informe de ventas entre las fechas que ingrese que usuario
                 console.log("INFORME DE VENTAS");
                 let fecha_i=prompt("ingresa la fecha de inicio en formato (año-mes-dia)");
                 let fecha_f=prompt("ingresa la fecha de fin en formato (año-mes-dia)");
@@ -703,7 +703,7 @@ while (bucle_principal==true) {
             console.log("2. filtrar ordenes");
             console.log("3. volver al menú principal");
             let opc_6 = prompt("ingresa una opción");
-            if (opc_6==1) {
+            if (opc_6==1) {//esta opción filtra los productos
                 let bool = true;
                 while (bool==true) {
                     menu_filtro();
@@ -712,7 +712,7 @@ while (bucle_principal==true) {
                     bool=searchProducts();
                 }
             }
-            else if (opc_6==2) {
+            else if (opc_6==2) {//esta opción filtra los pedidos
                 let bucle =true;
                 while (bucle==true){
                     menu_filtro_pedidos();
