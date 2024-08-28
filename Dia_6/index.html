@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>--------MENÚ PRINCIPAL--------</h1>
+    <h2>Gestión de productos</h2>
+    <div id="produc">
+        <h3>Añadir nuevo producto</h3>
+        <input type="text" id="id" placeholder="id">
+        <input type="text" id="name" placeholder="name">
+        <input type="text" id="category" placeholder="category">
+        <input type="number" id="price" placeholder="price">
+        <input type="number" id="quantityInStock" placeholder="quantityInStock">
+        <input type="number" id="supplierId" placeholder="supplierId">
+        <button onclick="obtener_producto()">agregar</button>
+        <br><input type="button" value="Ver todos los productos" id="ver_productos">
+        <div id="mostrar_productos"></div>
+        <h3>Actualizar datos de un producto</h3>
+        <input type="number" id="id_actualizar" placeholder="id">
+        <input type="text" id="nombre_actualizar" placeholder="new_name">
+        <input type="text" id="categoria_actualizar" placeholder="new_category">
+        <input type="number" id="precio_actualizar" placeholder="new_price">
+        <input type="number" id="cantidad_actualizar" placeholder="new_quantityInStock">
+        <button onclick="actualizar_producto()">Actualizar</button>
+        <h3>Eliminar Productos</h3>
+        <input type="number" id="id_eliminar" placeholder="id">
+        <button onclick="eliminar_producto()">Eliminar</button>
+    </div>
+    <h2>Gestión de proveedores</h2>
+    <div id="proveedor">
+        <h3>Añadir nuevo proveedor</h3>
+        <input type="number" id="id_proveedor" placeholder="id">
+        <input type="text" id="name_proveedor" placeholder="name">
+        <input type="number" id="phone_proveedor" placeholder="phone">
+        <input type="text" id="email_proveedor" placeholder="Email">
+        <input type="text" id="address" placeholder="address">
+        <button onclick="obtener_proveedor()">agregar</button>
+        <br><input type="button" value="Ver todos los proveedores" id="ver_proveedores">
+        <div id="mostrar_proveedores"></div>
+        <h3>Actualizar datos de un proveedor</h3>
+        <input type="number" id="id_proveedor_actualizar" placeholder="id">
+        <input type="text" id="name_proveedor_actualizar" placeholder="new_name">
+        <input type="number" id="phone_proveedor_actualizar" placeholder="new_phone">
+        <input type="text" id="email_proveedor_actualizar" placeholder="new_Email">
+        <input type="text" id="address_actualizar" placeholder="new_address">
+        <button onclick="actualizar_proveedor()">Actualizar</button>
+        <h3>Eliminar proveedor</h3>
+        <input type="number" id="id_eliminar_proveedor" placeholder="id">
+        <button onclick="eliminar_proveedor()">Eliminar</button>
+    </div>
+    <h2>Gestión de pedidos</h2>
+    <div id="ordenes">
+        <h3>Añadir nueva orden</h3>
+        <input type="number" id="order_id" placeholder="order_id">
+        <input type="number" id="produc_id" placeholder="produc_id">
+        <input type="number" id="order_quantity" placeholder="order_quantity">
+        <input type="text" id="status" placeholder="status">
+        <button onclick="obtener_orden()">agregar</button>
+        <br><input type="button" value="Ver todas las ordenes" id="ver_ordenes">
+        <div id="mostrar_ordenes"></div>
+        <h3>Actualizar datos de una orden</h3>
+        <input type="number" id="actualizar_order_id" placeholder="order_id">
+        <input type="number" id="actualizar_order_quantity" placeholder="new_order_quantity">
+        <input type="text" id="actualizar_status" placeholder="new_status">
+        <button onclick="actualizar_orden()">Actualizar</button>
+        <h3>Eliminar orden</h3>
+        <input type="number" id="id_eliminar_orden" placeholder="id">
+        <button onclick="eliminar_orden()">Eliminar</button>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>
