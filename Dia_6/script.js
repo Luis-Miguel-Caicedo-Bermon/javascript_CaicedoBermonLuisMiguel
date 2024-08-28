@@ -41,6 +41,7 @@ function addProduct(product){//función que agrega un nuevo producto
 }
 document.getElementById("ver_productos").addEventListener("click",viewProducts)
 function viewProducts(){//función que muestra todos los productos
+    document.getElementById("mostrar_productos").innerHTML =""
     for (const i of info[0]["products"]){
         document.getElementById("mostrar_productos").innerHTML +=
         `<p>----------------------------</p>
@@ -126,6 +127,7 @@ function addSupplier(supplier){//función que añade un nuevo proveedor
 }
 document.getElementById("ver_proveedores").addEventListener("click",viewSuppliers);
 function viewSuppliers(){//función que imprime todos los los proveedores
+    document.getElementById("mostrar_proveedores").innerHTML =""
     for (const i of info[0]["suppliers"]){
         document.getElementById("mostrar_proveedores").innerHTML +=
         `
@@ -240,6 +242,7 @@ function addOrder(order){//función que añade una nueva orden
 }
 document.getElementById("ver_ordenes").addEventListener("click",viewOrders);
 function viewOrders(){//funcion que muestra todas la ordenes
+    document.getElementById("mostrar_ordenes").innerHTML =""
     for (const i of info[0]["orders"]){
         document.getElementById("mostrar_ordenes").innerHTML +=
         `
