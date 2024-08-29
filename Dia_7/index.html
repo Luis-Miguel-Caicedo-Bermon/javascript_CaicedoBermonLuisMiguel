@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <div class="d-flex" role="search">
+            <input class="form-control me-2" type="text" id="pedir_id" placeholder="Search" aria-label="Search">
+            <button onclick="buscar_id()" class="btn btn-outline-success" type="submit">Search</button>
+          </div>
+        </div>
+    </nav>
+    <div class="d-flex" role="search">
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">response</th>
+            <th scope="col">id</th>
+            <th scope="col">biography</th>
+            <th scope="col">appearance</th>
+            <th scope="col">work</th>
+            <th scope="col">card</th>
+            </tr>
+        </thead>
+        <tbody id="mostrar">
+        </tbody>
+    </table>
+    <strong></strong>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="./script.js"></script>
+</html>
