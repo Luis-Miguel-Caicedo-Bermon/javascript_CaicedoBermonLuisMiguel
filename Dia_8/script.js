@@ -95,6 +95,31 @@ function mostrar(url){
                     </ul>
                 </td>
             </tr>
+            <tr class="table-dark">
+                <th scope="row">starships</th>
+                <td>
+                    <ul>
+                        <li id="starships" class="list-group-item">
+                            <table class="table table-sm">
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr class="table-dark">
+                <th scope="row">created</th>
+                <td>${info.created}</td>
+            </tr>
+            <tr class="table-dark">
+                <th scope="row">edited</th>
+                <td>${info.edited}</td>
+            </tr>
+            <tr class="table-dark">
+                <th scope="row">url</th>
+                <td>${info.url}</td>
+            </tr>
             `
             fetch(info.homeworld)
             .then(res => res.json())
@@ -381,6 +406,91 @@ function mostrar(url){
                         </tbody>
                     </table>
                     
+                    `
+                })
+            }
+            for (const i of info.starships){
+                fetch(i)
+                .then(res => res.json())
+                .then(starships =>{
+                    document.getElementById("starships").innerHTML +=
+                    `
+                    <table class="table table-sm">
+                        <tbody>
+                            <tr class="table-ligh">
+                                <th scope="row">name: </th>
+                                <td>${starships.name}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">model: </th>
+                                <td>${starships.model}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">manufacturer: </th>
+                                <td>${starships.manufacturer}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">cost_in_credits: </th>
+                                <td>${starships.cost_in_credits}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">length: </th>
+                                <td>${starships.length}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">max_atmosphering_speed: </th>
+                                <td>${starships.max_atmosphering_speed}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">crew: </th>
+                                <td>${starships.crew}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">passengers: </th>
+                                <td>${starships.passengers}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">cargo_capacity: </th>
+                                <td>${starships.cargo_capacity}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">consumables: </th>
+                                <td>${starships.consumables}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">hyperdrive_rating: </th>
+                                <td>${starships.hyperdrive_rating}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">pilots: </th>
+                                <td>${starships.MGLT}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">starship_class: </th>
+                                <td>${starships.starship_class}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">pilots: </th>
+                                <td>${starships.pilots.map(i=>i).join("<br>")}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">films: </th>
+                                <td>${starships.films.map(i=>i).join("<br>")}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">created: </th>
+                                <td>${starships.created}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">edited: </th>
+                                <td>${starships.edited}</td>
+                            </tr>
+                            <tr class="table-ligh">
+                                <th scope="row">url: </th>
+                                <td>${starships.url}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     `
                 })
             }
