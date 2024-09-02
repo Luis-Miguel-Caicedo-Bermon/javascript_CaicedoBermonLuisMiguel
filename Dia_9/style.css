@@ -5,8 +5,8 @@
     font-family: 'Oxanium', cursive;
 }
 #principal{
-    width: 500px;
-    height: 800px;
+    width: 100vw;
+    height: 100vh;
     background: linear-gradient(#6eb9f5, #ebf5fd);
     display: flex;
     align-items: center;
@@ -14,8 +14,8 @@
 }
 #fondo{
     background-image: url(pokedex.png);
-    width: 85%;
-    height: 80%;
+    width: 425px;
+    height: 640px;
     background-repeat: no-repeat;
 }
 #gif{
