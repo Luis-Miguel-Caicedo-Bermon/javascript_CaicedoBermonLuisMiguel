@@ -61,6 +61,10 @@ button{
     width: 140px;
     height: 45px;
     box-shadow: -3px 4px #212221;
+    color: white;
+}
+button:active{
+    box-shadow: inset -2px 3px #212221;
 }
 #prew{
     background-color: #424242;

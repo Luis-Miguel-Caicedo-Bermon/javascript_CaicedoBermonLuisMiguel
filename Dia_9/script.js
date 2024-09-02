@@ -15,6 +15,7 @@ function buscar(id_nombre){
         document.getElementById("gif").innerHTML = ""
         document.getElementById("gif").innerHTML += `
         <img src="${info.sprites.other.showdown.front_default}">
+        <audio src="${info.cries.latest}" autoplay></audio>
         `
         document.getElementById("nombre").innerHTML=""
         document.getElementById("nombre").innerHTML+=`
@@ -33,6 +34,7 @@ function next(){
         document.getElementById("gif").innerHTML = ""
         document.getElementById("gif").innerHTML += `
         <img src="${info.sprites.other.showdown.front_default}">
+        <audio src="${info.cries.latest}" autoplay></audio>
         `
         document.getElementById("nombre").innerHTML=""
         document.getElementById("nombre").innerHTML+=`
@@ -51,6 +53,7 @@ function prev(){
         document.getElementById("gif").innerHTML = ""
         document.getElementById("gif").innerHTML += `
         <img src="${info.sprites.other.showdown.front_default}">
+        <audio src="${info.cries.latest}" autoplay></audio>
         `
         document.getElementById("nombre").innerHTML=""
         document.getElementById("nombre").innerHTML+=`
