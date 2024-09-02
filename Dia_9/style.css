@@ -1,3 +1,9 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxanium', cursive;
+}
 #principal{
     width: 500px;
     height: 800px;
@@ -26,7 +32,10 @@
     margin-left: 120px;
     width: 200px;
     height: 40px;
-    background-color: greenyellow;
+    color: #a8afaa;
+    display: flex;
+    justify-content: end;
+    font-size: 25px;
 }
 #id_nombre{
     margin-top: 30px;
@@ -38,6 +47,8 @@
     box-shadow:
         -2px 4px #8e8e8f,
         -3px 7px #2c2829;
+    color: #959896;
+    padding-left: 20px;
 }
 #botones{
     width: 350px;
@@ -63,4 +74,8 @@ button{
 img{
     width: 60%;
     height: 60%;
+}
+#nom{
+    margin-left: 10px;
+    color: #384047;
 }
