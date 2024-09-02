@@ -1,0 +1,66 @@
+#principal{
+    width: 500px;
+    height: 800px;
+    background: linear-gradient(#6eb9f5, #ebf5fd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#fondo{
+    background-image: url(pokedex.png);
+    width: 85%;
+    height: 80%;
+    background-repeat: no-repeat;
+}
+#gif{
+    margin-top: 180px;
+    margin-left: 120px;
+    width: 170px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#nombre{
+    margin-top: 20px;
+    margin-left: 120px;
+    width: 200px;
+    height: 40px;
+    background-color: greenyellow;
+}
+#id_nombre{
+    margin-top: 30px;
+    margin-left: 40px;
+    width: 300px;
+    height: 40px;
+    border: #49494a solid 2px;
+    border-radius: 8px;
+    box-shadow:
+        -2px 4px #8e8e8f,
+        -3px 7px #2c2829;
+}
+#botones{
+    width: 350px;
+    margin-top: 70px;
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+button{
+    width: 140px;
+    height: 45px;
+    box-shadow: -3px 4px #212221;
+}
+#prew{
+    background-color: #424242;
+}
+#next{
+    background-color: #424242;
+}
+#sub{
+    display: none;
+}
+img{
+    width: 60%;
+    height: 60%;
+}
