@@ -28,10 +28,10 @@ function buscar(id){
                         <li class="list-group-item"><strong>created</strong> ${info.created}</li>
                     </ul>
                 </div>
-                <div id="carouselExample" class="carousel slide" style="margin-left: 10rem;">
+                <div id="carouselExample" class="carousel slide">
                 <div class="carousel-inner" id="caps">
-                    <div class="carousel-item active" style="width: 50rem;">
-                    <img src="${info.image}" style="width: 30rem; margin-left: 10rem; margin-top:6rem" alt="...">
+                    <div class="carousel-item active" id="carousel_item">
+                    <img src="${info.image}" id="img_principal" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -52,8 +52,8 @@ function buscar(id){
                 clase+=1;
                 let idd = "personaje"+clase;
                 document.getElementById("caps").innerHTML += `
-                <div class="carousel-item" style="width: 50rem;">
-                <table class="table" style="width: 30rem; margin-left: 10rem; margin-top:6rem"">
+                <div class="carousel-item" id="carrusel_item">
+                <table class="table" id="tabla">
                     <tbody>
                         <tr class="table-dark">
                             <th scope="row">espisodio:</th>

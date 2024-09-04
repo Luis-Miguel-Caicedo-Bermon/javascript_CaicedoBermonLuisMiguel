@@ -12,7 +12,48 @@ body{
 }
 #personaje{
     display: flex;
+    flex-wrap: wrap;
 }
 #imagenes{
     width: 4rem;
+}
+#carouselExample{
+    margin-left: 10rem;
+}
+#carousel_item{
+    width: 50rem;
+}
+#img_principal{
+    width: 30rem; 
+    margin-left: 10rem; 
+    margin-top:6rem
+}
+#carrusel_item{
+    width: 50rem;
+}
+#tabla{
+    width: 30rem; 
+    margin-left: 10rem; 
+    margin-top:6rem
+}
+@media only screen and (max-width: 440px){
+    #carouselExample{
+        margin-left: 0;
+    }
+    #carousel_item{
+        width: 24rem;
+    }
+    #img_principal{
+        width: 18rem;
+        margin-left: 3rem; 
+        margin-top: 3rem;
+    }
+    #carrusel_item{
+        width: 24rem;
+    }
+    #tabla{
+        width: 18rem;
+        margin-left: 3rem; 
+        margin-top: 3rem;
+    }
 }
