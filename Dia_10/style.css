@@ -1,0 +1,18 @@
+body{
+    background-image: url(rick.png);
+    background-size: cover;
+}
+#id{
+    color: rgb(89, 255, 0);
+    border: solid rgb(89, 255, 0) 3px;
+}
+#flecha{
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+}
+#personaje{
+    display: flex;
+}
+#imagenes{
+    width: 4rem;
+}
