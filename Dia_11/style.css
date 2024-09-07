@@ -73,9 +73,6 @@ body::before{
     margin-top: -3rem;
     transition: 0.5s;
 }
-#user:hover{
-    margin-top: -6.1rem;
-}
 #emai{
     background-image: url(./images/mail.png);
     width: 3rem;
@@ -83,9 +80,6 @@ body::before{
     background-size: contain;
     margin-top: -3.6rem;
     transition: 0.5s;
-}
-#emai:hover{
-    margin-top: -6.5rem;
 }
 #calendar{
     background-image: url(./images/birthday.png);
@@ -95,9 +89,6 @@ body::before{
     margin-top: -3.2rem;
     transition: 0.5s;
 }
-#calendar:hover{
-    margin-top: -6.2rem;
-}
 #location{
     background-image: url(./images/location.png);
     width: 3rem;
@@ -105,9 +96,6 @@ body::before{
     background-size: contain;
     margin-top: -3.7rem;
     transition: 0.5s;
-}
-#location:hover{
-    margin-top: -6.7rem;
 }
 #phone{
     background-image: url(./images/phone.png);
@@ -117,9 +105,6 @@ body::before{
     margin-top: -3.2rem;
     transition: 0.5s;
 }
-#phone:hover{
-    margin-top: -6.3rem;
-}
 #key{
     background-image: url(./images/password.png);
     width: 3rem;
@@ -128,6 +113,6 @@ body::before{
     margin-top: -3.5rem;
     transition: 0.5s;
 }
-#key:hover{
-    margin-top: -6.6rem;
+.verde{
+    transform: translateY(-3rem);
 }
