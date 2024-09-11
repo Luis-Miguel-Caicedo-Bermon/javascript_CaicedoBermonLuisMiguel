@@ -1,26 +1,32 @@
 *{
     margin: 0;
+    font-family: system-ui;
+}
+body{
+    background-image: url(.//images/fondo.png);
+    background-size: cover;
 }
 .contenedor{
-    background-color: green;
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 #carta_random{
     width: 15rem;
-    height: 25rem;
+    height: 23rem;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 #carta_random img{
-    width: 65%;
-    height: 53%;
+    width: 10rem;
+    height: 14rem;
 }
 .cartas{
-    width:35rem;
-    height: 50rem;
+    width:30rem;
+    height: 45rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,16 +36,95 @@
     height: 90%;
     display: grid;
     grid-template-columns: auto auto auto;
-    gap: 3%;
+    gap: 10px;
 }
 .grid div{
-    width: 10rem;
-    height: 14rem;
+    width: 8.5rem;
+    height: 12rem;
+    cursor: pointer;
 }
 .grid div img{
     width: 100%;
+    height: 100%;
 }
 .carta{
     background-image: url(https://deckofcardsapi.com/static/img/back.png);
     background-size: cover;
+}
+#ganaste{
+    position: absolute;
+    background: transparent;
+    border: white 2px solid;
+    width: 20rem;
+    height: 25rem;
+    margin-top: 5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+}
+#ganaste div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+#ganaste div img{
+    width: 30%;
+    border-radius: 10%;
+}
+#ganaste button{
+    margin: 20% 32%;
+    padding: 4%;
+    border-radius: 7px;
+    border: none;
+    background-color: #ffd700;
+    box-shadow: -2px 2px #8c7700,
+    -4px 4px #6e5e00;
+}
+#ganaste button:active{
+    padding: 3.5%;
+    box-shadow: inset -2px 2px #8c7700,
+    inset -4px 4px #6e5e00;
+}
+.info{
+    position: absolute;
+    font-size: 3rem;
+    border-radius: 50%;
+    color: white;
+    top: 3rem;
+    right: 3rem;
+    cursor: pointer;
+}
+.info div{
+    position: absolute;
+    right: 0;
+    font-size: 1rem;
+    color: #ffd700;
+    backdrop-filter: blur(20px);
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+.info:hover div{
+    border: white 2px solid;
+    width: 7rem;
+    height: auto;
+    padding: 1rem;
+}
+@media only screen and (max-width: 545px){
+    .cartas{
+        width: 20rem;
+        height: 30rem;
+    }
+    .grid div{
+        width: 6rem;
+        height: 8.5rem;
+    }
+    .grid{
+        gap: 5px;
+    }
+    .info{
+        font-size: 2rem;
+        top: 1rem;
+        right: 1rem;
+    }
 }
